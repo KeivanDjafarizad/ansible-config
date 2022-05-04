@@ -4,7 +4,7 @@
   become: true
 
   tasks:
-    - name: Installing packages
-      package:
-        name: htop
+  - name: Installing packages
+    package:
+      name: htop
 
