@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  connetction: local
+  become: true
+
+  tasks:
+    - name: Installing packages
+      package:
+        name: htop
+
