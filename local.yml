@@ -14,6 +14,10 @@
         - openssh
         - putty
 
+
+  - name: create zsh config folder
+    file: path=/home/keivan/.config/zsh state=directory mode=0755
+
   - name: copy zshrc
     copy:
       src: files/zsh/.zshrc
