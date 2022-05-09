@@ -1,0 +1,9 @@
+- name: software | installing packages
+  package:
+    name: 
+      - htop
+      - tmux
+      - zsh
+      - neovim
+      - openssh
+      - putty

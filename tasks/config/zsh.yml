@@ -1,0 +1,25 @@
+- name: config | zsh | create zsh config folder
+  file: 
+    path: /home/keivan/.config/zsh 
+    state: directory 
+    mode: 0755
+
+- name: config | zsh | copy zshrc
+  copy:
+    src: files/zsh/.zshrc
+    dest: /home/keivan/.config/zsh/.zshrc
+    owner: keivan
+    group: keivan
+
+- name: config | zsh | copy zshenv
+  copy:
+    src: files/zsh/.zshenv
+    dest: /home/keivan/.zshenv
+    owner: keivan
+    group: keivan
+
+- name: config | zsh | download antigen.zsh
+  get_url:
+    url: https://git.io/antigen
+    dest: /home/keivan/.config/zsh/antigen.zsh
+    mode: 0664

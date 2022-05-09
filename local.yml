@@ -3,37 +3,6 @@
   connection: local
   become: true
 
-  tasks:
-  - name: installing packages
-    package:
-      name: 
-        - htop
-        - tmux
-        - zsh
-        - neovim
-        - openssh
-        - putty
-
-
-  - name: create zsh config folder
-    file: path=/home/keivan/.config/zsh state=directory mode=0755
-
-  - name: copy zshrc
-    copy:
-      src: files/zsh/.zshrc
-      dest: /home/keivan/.config/zsh/.zshrc
-      owner: keivan
-      group: keivan
-
-  - name: copy zshenv
-    copy:
-      src: files/zsh/.zshenv
-      dest: /home/keivan/.zshenv
-      owner: keivan
-      group: keivan
-
-  - name: download antigen.zsh
-    get_url:
-      url: https://git.io/antigen
-      dest: /home/keivan/.config/zsh/antigen.zsh
-      mode: 0664
+- block:
+  - import_tasks: tasks/software/packages.yml
+  - import_tasks: tasks/config/zsh.yml
