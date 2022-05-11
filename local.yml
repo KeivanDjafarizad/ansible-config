@@ -3,6 +3,9 @@
   connection: local
   become: true
 
-- block:
-  - import_tasks: tasks/software/packages.yml
-  - import_tasks: tasks/config/zsh.yml
+  tasks:
+  - name: software
+    include_tasks: tasks/software/packages.yml
+
+  - name: config zsh
+    include_tasks: tasks/config/zsh.yml
