@@ -7,3 +7,9 @@
       - neovim
       - openssh
       - putty
+
+- name: software | fedora-specific
+  package:
+    name:
+      - dnf-plugins-core
+  when: ansible_facts["distribution"] == "Fedora"
