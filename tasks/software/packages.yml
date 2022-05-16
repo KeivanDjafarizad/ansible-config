@@ -7,6 +7,13 @@
       - neovim
       - openssh
       - putty
+      - fzf
+      - docker-ce 
+      - docker-ce-cli 
+      - containerd.io 
+      - docker-compose-plugin
+      - code
+      - sublime-text
 
 - name: software | fedora-specific
   package:

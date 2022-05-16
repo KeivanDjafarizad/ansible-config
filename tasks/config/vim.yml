@@ -1,0 +1,37 @@
+- name: create bundle config
+  file: 
+    path: "{{ nvim_bundle_folder }}"
+    state: directory 
+    mode: 0755
+
+- name: create bundle config
+  file: 
+    path: "{{ nvim_plug_config_folder }}" 
+    state: directory 
+    mode: 0755
+
+- name: git clone vundle in config folder
+  git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: "{{ nvim_bundle_folder }}/Vundle.vim"
+
+- name: move init.vim file 
+  copy:
+    src: files/vim/init.vim
+    dest: "{{ nvim_folder }}/init.vim"
+    owner: keivan
+    group: keivan
+
+- name: move coc-settings.json file 
+  copy:
+    src: files/vim/coc-settings.json
+    dest: "{{ nvim_folder }}/coc-settigs.json"
+    owner: keivan
+    group: keivan
+
+- name: move coc.vim file 
+  copy:
+    src: files/vim/coc-settings.json
+    dest: /home/keivan/.config/nvim/plug-config/coc.vim
+    owner: keivan
+    group: keivan

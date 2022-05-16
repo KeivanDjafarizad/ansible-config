@@ -1,0 +1,7 @@
+- name: software | installing packages
+  flatpak:
+    name:
+      - com.bitwareden.desktop
+      - com.getpostan.Postman
+      - org.remmina.Remmina
+      - com.google.Chrome

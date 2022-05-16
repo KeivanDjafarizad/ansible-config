@@ -1,2 +1,11 @@
+# Basic Config
 temp_git_folder: /home/keivan/tmp
 my_user: keivan
+
+# Versions
+nvm_version: 0.39.1
+
+# Vim Folders
+nvim_folder: /home/keivan/.config/nvim
+nvim_bundle_folder: /home/keivan/.config/nvim/bundle
+nvim_plug_config_folder: /home/keivan/.config/nvim/plug-config

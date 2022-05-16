@@ -11,5 +11,8 @@
   - name: software
     include_tasks: tasks/software/software.yml
 
-  # - name: config zsh
-  #   include_tasks: tasks/config/zsh.yml
+  - name: config zsh
+    include_tasks: tasks/config/zsh.yml
+
+  - name: config nvim
+    include_tasks: tasks/config/nvim.yml

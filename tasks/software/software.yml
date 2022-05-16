@@ -1,21 +1,21 @@
-- name: software |
+- name: software
   block:
-    - name: preflight | Create temporary folder
-      file:
-        path: "{{ temp_git_folder }}"
-        state: directory
-        mode: 0755
+    - name: preflight
+      include_tasks: preflight.yml
 
     - name: packages
       include_tasks: packages.yml
 
+    - name: flatpaks
+      include_tasks: flatpaks.yml
+
     - name: lazydocker
       include_tasks: lazydocker.yml
 
-    - name: docker
-      include_tasks: docker.yml
+    - name: nvm
+      include_tasks: nvm.yml
     
-    - name: cleanup | Remove temporary folder
+    - name: cleanup
       file:
         path: "{{ temp_git_folder }}"
         state: absent

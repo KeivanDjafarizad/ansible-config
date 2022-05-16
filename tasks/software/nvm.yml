@@ -1,0 +1,11 @@
+- name: downloading nvm install script
+  get_url:
+    url: https://raw.githubusercontent.com/nvm-sh/nvm/v{{ nvm_version }}/install.sh
+    dest: "{{ temp_git_folder }}/nvm.sh"
+    mode: 0755
+
+- name: running install script
+  become: true
+  become_user: "{{ my_user }}"
+  script:
+    cmd: "{{ temp_git_folder }}/nvm.sh --no-use"

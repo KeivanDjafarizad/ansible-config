@@ -1,0 +1,44 @@
+- name: create temporary folder
+  file:
+    path: "{{ temp_git_folder }}"
+    state: directory
+    mode: 0755
+
+- name: fedora | add GPG key for sublime
+  rpm_key:
+    key: https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+    state: present
+  when: ansible_facts["distribution"] == "Fedora"
+
+- name: fedora | add GPG key for vscode
+  rpm_key:
+    key: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+
+- name: fedora | add vscode repo
+  yum_repository:
+    name: Visual Studio Code
+    description: Repository for VSCode
+    baseurl: https://packages.microsoft.com/yumrepos/vscode
+    gpgcheck: true
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+
+
+- name: fedora | add sublime text repo
+  yum_repository:
+    name: sublime-text
+    description: Repository for Sublime Text
+    baseurl: https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+    gpgcheck: true
+    gpgkey: https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+  when: ansible_facts["distribution"] == "Fedora"
+
+- name: fedora | add docker repo
+  yum_repository:
+    name: docker-ce
+    description: Repository for Docker CE
+    baseurl: https://download.docker.com/linux/fedora/docker-ce.repo
+    gpgkey: https://download.docker.com/linux/fedora/gpg
+    gpgcheck: true
+  when: ansible_facts["distribution"] == "fedora"
+
