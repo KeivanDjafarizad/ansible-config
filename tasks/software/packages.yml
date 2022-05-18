@@ -14,6 +14,12 @@
       - docker-compose-plugin
       - code
       - sublime-text
+      - exa
+      - fd-find
+      - ripgrep
+      - zoxide
+      - mc
+      - entr
 
 - name: software | fedora-specific
   package:
