@@ -14,6 +14,7 @@
   rpm_key:
     key: https://packages.microsoft.com/keys/microsoft.asc
     state: present
+  when: ansible_facts["distribution"] == "Fedora"
 
 - name: fedora | add vscode repo
   yum_repository:
@@ -22,6 +23,7 @@
     baseurl: https://packages.microsoft.com/yumrepos/vscode
     gpgcheck: true
     gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+  when: ansible_facts["distribution"] == "Fedora"
 
 
 - name: fedora | add sublime text repo

@@ -5,3 +5,4 @@
       - com.getpostan.Postman
       - org.remmina.Remmina
       - com.google.Chrome
+  when: ansible_facts["distribution"] == "Fedora"
